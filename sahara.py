@@ -24,15 +24,6 @@ window.resizable(0, 0)
 window.title("Sahara")
 window.tk.call('tk','scaling',3.0)
 
-photo=PhotoImage(file= r"/Applications/sahara.app/Contents/MacOS/naveric.png")
-photo2=PhotoImage(file= r"/Applications/sahara.app/Contents/MacOS/naveric2.png")
-photo3=PhotoImage(file= r"/Applications/sahara.app/Contents/MacOS/naveric4.png")
-photo4=PhotoImage(file= r"/Applications/sahara.app/Contents/MacOS/naveric6.png")
-
-photoimage = photo.subsample(3,3)
-photoimage2=photo2.subsample(3,3)
-photoimage3=photo3.subsample(3,3)
-photoimage4=photo4.subsample(3,3)
 
 
 # Defining the required functions for the Calculator to function properly.
@@ -373,39 +364,39 @@ window.bind('r',lambda x: btn_click(" sq"))
 
 
 
-delete = Button(btns_frame, text = "Del",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0,borderwidth=0, bg = "white", cursor = "hand2", command = lambda: btn_del(event)).grid(row = 1, column = 4,  padx = 1, pady = 1)
-clear = Button(btns_frame, text = "Clear",image=photoimage, fg = "white", width = 300,borderwidth=200,relief='flat',height = 25,compound="center", bd = 0, highlightbackground="white", bg = "white", cursor = "hand2", command = lambda: btn_clear(event)).grid(row = 0, column = 0, columnspan = 3, padx = 1, pady = 1)
-divide = Button(btns_frame, text = "/",image=photoimage4,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" / ")).grid(row = 0, column = 3, padx = 1, pady = 1)
+delete = Button(btns_frame, text = "Del", fg = "black", width = 10, height = 3, bd = 0,borderwidth=0, bg = "white", cursor = "hand2", command = lambda: btn_del(event)).grid(row = 1, column = 4,  padx = 1, pady = 1)
+clear = Button(btns_frame, text = "Clear", fg = "black", width = 32,relief='flat',height = 3, bd = 0, highlightbackground="white", bg = "white", cursor = "hand2", command = lambda: btn_clear(event)).grid(row = 0, column = 0, columnspan = 3, padx = 1, pady = 1)
+divide = Button(btns_frame, text = "/", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" / ")).grid(row = 0, column = 3, padx = 1, pady = 1)
 
 
-seven = Button(btns_frame, text = "7", image=photoimage3,compound="center",fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("7")).grid(row = 1, column = 0, padx = 1, pady = 1)
-eight = Button(btns_frame, text = "8", image=photoimage3,compound="center",fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("8")).grid(row = 1, column = 1, padx = 1, pady = 1)
-nine = Button(btns_frame, text = "9", image=photoimage3,compound="center",fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("9")).grid(row = 1, column = 2, padx = 1, pady = 1)
-multiply = Button(btns_frame, text = "*",image=photoimage4,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" * ")).grid(row = 1, column = 3, padx = 1, pady = 1)
+seven = Button(btns_frame, text = "7",fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("7")).grid(row = 1, column = 0, padx = 1, pady = 1)
+eight = Button(btns_frame, text = "8", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("8")).grid(row = 1, column = 1, padx = 1, pady = 1)
+nine = Button(btns_frame, text = "9", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("9")).grid(row = 1, column = 2, padx = 1, pady = 1)
+multiply = Button(btns_frame, text = "*", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" * ")).grid(row = 1, column = 3, padx = 1, pady = 1)
 
 
-four = Button(btns_frame, text = "4",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg='white', cursor = "hand2", command = lambda: btn_click("4")).grid(row = 2, column = 0, padx = 1, pady = 1)
-five = Button(btns_frame, text = "5",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click("5")).grid(row = 2, column = 1, padx = 1, pady = 1)
-six = Button(btns_frame, text = "6",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click("6")).grid(row = 2, column = 2, padx = 1, pady = 1)
-minus = Button(btns_frame, text = "-",image=photoimage4,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click(" - ")).grid(row = 2, column = 3, padx = 1, pady = 1)
+four = Button(btns_frame, text = "4", fg = "black", width = 10, height = 3, bd = 0, bg='white', cursor = "hand2", command = lambda: btn_click("4")).grid(row = 2, column = 0, padx = 1, pady = 1)
+five = Button(btns_frame, text = "5", fg = "black", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click("5")).grid(row = 2, column = 1, padx = 1, pady = 1)
+six = Button(btns_frame, text = "6", fg = "black", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click("6")).grid(row = 2, column = 2, padx = 1, pady = 1)
+minus = Button(btns_frame, text = "-", fg = "black", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click(" - ")).grid(row = 2, column = 3, padx = 1, pady = 1)
 
 
-one = Button(btns_frame, text = "1", image=photoimage3,compound="center",fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("1")).grid(row = 3, column = 0, padx = 1, pady = 1)
-two = Button(btns_frame, text = "2",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("2")).grid(row = 3, column = 1, padx = 1, pady = 1)
-three = Button(btns_frame, text = "3",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("3")).grid(row = 3, column = 2, padx = 1, pady = 1)
-plus = Button(btns_frame, text = "+",image=photoimage4,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" + ")).grid(row = 3, column = 3, padx = 1, pady = 1)
+one = Button(btns_frame, text = "1", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("1")).grid(row = 3, column = 0, padx = 1, pady = 1)
+two = Button(btns_frame, text = "2", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("2")).grid(row = 3, column = 1, padx = 1, pady = 1)
+three = Button(btns_frame, text = "3", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("3")).grid(row = 3, column = 2, padx = 1, pady = 1)
+plus = Button(btns_frame, text = "+", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" + ")).grid(row = 3, column = 3, padx = 1, pady = 1)
 # The fourth row will comprise of the buttons '1', '2', '3' and 'Addition (+)'
-X2 = Button(btns_frame, text = "X2",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("d")).grid(row = 2,column = 4, padx = 1, pady = 1)
-X = Button(btns_frame, text = "X",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "black", cursor = "hand2", command = lambda: btn_click("x")).grid(row = 3, column = 4, columnspan = 1, padx = 1, pady = 1)
-POW = Button(btns_frame, text = "x^n", image=photoimage3,compound="center",fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" ^ ")).grid(row =0, column = 4, padx = 1, pady = 1)
+X2 = Button(btns_frame, text = "X2", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("d")).grid(row = 2,column = 4, padx = 1, pady = 1)
+X = Button(btns_frame, text = "X", fg = "black", width = 10, height = 3, bd = 0, bg = "black", cursor = "hand2", command = lambda: btn_click("x")).grid(row = 3, column = 4, columnspan = 1, padx = 1, pady = 1)
+POW = Button(btns_frame, text = "x^n", fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(" ^ ")).grid(row =0, column = 4, padx = 1, pady = 1)
 
-zero = Button(btns_frame, text = "0",image=photoimage2,compound="center", fg = "white", width = 21, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("0")).grid(row = 4, column = 0, columnspan = 2, padx = 1, pady = 1)
-point = Button(btns_frame, text = ".",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(".")).grid(row = 4, column = 2, padx = 1, pady = 1)
-equals = Button(btns_frame, text = "=",image=photoimage,compound="center", fg = "white", width = 32, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_equal(event)).grid(row = 4, column = 3,columnspan=3, padx = 1, pady = 1)
+zero = Button(btns_frame, text = "0", fg = "black", width = 21, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click("0")).grid(row = 4, column = 0, columnspan = 2, padx = 1, pady = 1)
+point = Button(btns_frame, text = ".",fg = "black", width = 10, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_click(".")).grid(row = 4, column = 2, padx = 1, pady = 1)
+equals = Button(btns_frame, text = "=", fg = "black", width = 32, height = 3, bd = 0, bg = "white", cursor = "hand2", command = lambda: btn_equal(event)).grid(row = 4, column = 3,columnspan=3, padx = 1, pady = 1)
 
-par1 = Button(btns_frame, text = "(",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg='white', cursor = "hand2", command = lambda: btn_click("( ")).grid(row = 0, column = 5, padx = 1, pady = 1)
-par2 = Button(btns_frame, text = ")",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click(" )")).grid(row = 1, column = 5, padx = 1, pady = 1)
-pi = Button(btns_frame, text = "π",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click("π")).grid(row = 2, column = 5, padx = 1, pady = 1)
-root = Button(btns_frame, text = "√x",image=photoimage3,compound="center", fg = "white", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click(" sq")).grid(row = 3, column = 5, padx = 1, pady = 1)
+par1 = Button(btns_frame, text = "(", fg = "black", width = 10, height = 3, bd = 0, bg='white', cursor = "hand2", command = lambda: btn_click("( ")).grid(row = 0, column = 5, padx = 1, pady = 1)
+par2 = Button(btns_frame, text = ")", fg = "black", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click(" )")).grid(row = 1, column = 5, padx = 1, pady = 1)
+pi = Button(btns_frame, text = "π", fg = "black", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click("π")).grid(row = 2, column = 5, padx = 1, pady = 1)
+root = Button(btns_frame, text = "√x", fg = "black", width = 10, height = 3, bd = 0, bg = 'white', cursor = "hand2", command = lambda: btn_click(" sq")).grid(row = 3, column = 5, padx = 1, pady = 1)
 
 window.mainloop()
