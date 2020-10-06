@@ -10,7 +10,7 @@ Created on Mon Sep 21 22:38:24 2020
 
 # Installation
 
-Download the folder, then find the app in /sahara/dist , drag and drop it into your Applications folder. Then you will be able to open it.
+Download sahara.py, enter $ python sahara.py on terminal or cmd to run
 
 # Usage
 
