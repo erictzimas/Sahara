@@ -1,6 +1,7 @@
 # Sahara
 Scientific calculator and equation solver made with Python and Tkinter.
 # Sahara v1.0
+https://travis-ci.com/erictzimas/Sahara.svg?branch=main
 
 Sahara is a scientific calculator that can also solve first and second degree equations, Tkinter GUI is configured for macOS.
 
