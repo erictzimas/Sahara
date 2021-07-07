@@ -7,23 +7,18 @@ Created on Mon Sep 21 22:38:24 2020
 """
 from tkinter import *
 import math
-from Calculo import Calculo
-
+from Solver import Solver
 
 # Creating the Tkinter window
 window = Tk()
 window.configure(bg="white")
 # Defining the size of the window in width and height using the 'geometry' method
 window.geometry("600x355")
-
 # Preventing the window from getting resized
 window.resizable(0, 0)
-
 # Defining the title of the window
-
 window.title("Sahara")
 window.tk.call("tk", "scaling", 3.0)
-
 # Defining the required functions for the Calculator to function properly.
 con = []
 event = ""
@@ -53,13 +48,14 @@ def btn_equal(event):
     str1 = ""
     yo = str(str1.join(con))
     expression = ""
+    solver = Solver(yo)
     if "x" in yo and "d" not in yo:
 
-        input_text.set(Calculo.calcvi(yo))
+        input_text.set(Solver.firstDegreeCalculations(solver))
     elif "d" in yo:
-        input_text.set(Calculo.calcvi2(yo))
+        input_text.set(Solver.secondDegreeCalculations(solver))
     else:
-        input_text.set(Calculo.parenth(yo))
+        input_text.set(Solver.parenthesis(solver))
 
 
 # 4. Fourth function deletes previous addition
@@ -73,16 +69,11 @@ def btn_del(event):
     expression = str(stt.join(con))
 
 
-# 5. Method that calculates first degree equations
-
-
 expression = ""
 # In order to get the instance of the input field 'StringVar()' is used
 input_text = StringVar(value="0")
 
-# Once all the functions are defined then comes the main section where you will start defining the structure of the calculator inside the GUI.
-
-# The first thing is to create a frame for the input field
+# create a frame for the input field
 input_frame = Frame(
     window,
     width=400,
@@ -95,7 +86,7 @@ input_frame = Frame(
 input_frame.pack(side=TOP)
 
 
-# Then you will create an input field inside the 'Frame' that was created in the previous step. Here the digits or the output will be displayed as 'right' aligned
+# create an input field inside the 'Frame' that was created in the previous step. Here the digits or the output will be displayed as 'right' aligned
 input_field = Entry(
     input_frame,
     font=("MS Serif", 35, "bold"),
@@ -112,7 +103,7 @@ input_field.pack(
 )  # 'ipady' is an internal padding to increase the height of input field
 
 
-# Once you have the input field defined then you need a separate frame which will incorporate all the buttons inside it below the 'input field'
+# a separate frame which will incorporate all the buttons inside it below the 'input field'
 btns_frame = Frame(window, width=465, height=272.5, bg="white")
 
 btns_frame.pack()
