@@ -51,11 +51,11 @@ def btn_equal(event):
     solver = Solver(yo)
     if "x" in yo and "d" not in yo:
 
-        input_text.set(Solver.firstDegreeCalculations(solver))
+        input_text.set(solver.firstDegreeCalculations())
     elif "d" in yo:
-        input_text.set(Solver.secondDegreeCalculations(solver))
+        input_text.set(solver.secondDegreeCalculations())
     else:
-        input_text.set(Solver.parenthesis(solver))
+        input_text.set(solver.parenthesis())
 
 
 # 4. Fourth function deletes previous addition
