@@ -7,12 +7,12 @@ Created on Mon Sep 21 22:38:24 2020
 """
 from tkinter import *
 import math
+from Calculo import Calculo
 
 
 # Creating the Tkinter window
 window = Tk()
 window.configure(bg='white')
-
 # Defining the size of the window in width and height using the 'geometry' method
 window.geometry("600x355")
 
@@ -24,12 +24,9 @@ window.resizable(0, 0)
 window.title("Sahara")
 window.tk.call('tk','scaling',3.0)
 
-
-
 # Defining the required functions for the Calculator to function properly.
 con=[]
 event=""
-
 
 # 1. First is the button click 'btn_click' function which will continuously update the input field whenever a number is entered or any button is pressed it will act as a button click update.
 def btn_click(item):
@@ -45,19 +42,21 @@ def btn_clear(event):
     con.clear()
 # 3. Third and the final function is button equal ("=") 'btn_equal' function which will calculate the expression present in input field. For example: User clicks button 2, + and 3 then clicks "=" will result in an output 5.
 def btn_equal(event):
+    
+
     global expression
-     # 'eval' function is used for evaluating the string expressions directly
+    # 'eval' function is used for evaluating the string expressions directly
     # you can also implement your own function to evalute the expression istead of 'eval' function
     str1=""
     yo=str(str1.join(con))
     expression = ""
     if "x" in yo and "d" not in yo:
         
-     input_text.set(calcvi(yo))
+        input_text.set(Calculo.calcvi(yo))
     elif "d" in yo:
-        input_text.set(calcvi2(yo))
+        input_text.set(Calculo.calcvi2(yo))
     else:
-        input_text.set(parenth(yo))
+        input_text.set(Calculo.parenth(yo))
 # 4. Fourth function deletes previous addition
 def btn_del(event):
     global expression
@@ -68,246 +67,7 @@ def btn_del(event):
         input_text.set("0")
     expression=str(stt.join(con))
 # 5. Method that calculates first degree equations   
-def calcvi(str1):
-    
-    c=str1.split(" ")
-    obj=[]
-    obj2=[]
-    quant=[]
-    str2=" "
-    str3=" "
 
-    if "d" not in c:
-        if "x" in c[0]:
-                obj.append(c[0])
-              
-        elif c[0].isnumeric()  :
-                quant.append(c[0])
-                
-        for i in range(1,len(c)):
-            if "x" in c[i]:
-                    obj.append(c[i-1])
-                    obj.append(c[i])
-               
-                       
-      
-            elif c[i].isnumeric() :
-                
-                    
-                    quant.append(c[i-1])
-                    quant.append(c[i]) 
-        for i in range(0,len(obj)):
-            if "x" in obj[i]:
-                s=obj[i].split()
-                if not obj[i][0].isnumeric():
-               
-                    obj[i]=obj[i].replace("x","1")
-                else:
-                    
-                    obj[i]=obj[i].replace("x"," * 1")
-        if not obj[0].isnumeric():
-            if obj[0]=="-":
-                obj.remove(obj[0])
-                obj[0]=str(-1*int(obj[0]))
-            elif obj[0]=="+":
-                obj.remove(obj[0])
-        if not quant[0].isnumeric():
-            if quant[0]=="-":
-                quant.remove(quant[0])
-                quant[0]=str(-1*int(quant[0]))
-            elif quant[0]=="+":
-                quant.remove(quant[0])
-        leftside=calc2(str2.join(obj))
-        rightside=calc2(str3.join(quant))
-        ans= (-1*rightside)/leftside
-       
-        answer= "X = ", ans
-   
-    return answer
-# 6. Method that calculates second degree equations
-def calcvi2(str1):
- c=str1.split(" ")
- obj=[]
- obj2=[]
- quant=[]
- str2=" "
- str3=" "
- str4=" "
- xtrigger=False
- if "x" in c[0]:
-     obj.append(c[0])
- elif "d" in c[0]:
-     obj2.append(c[0])
-    
- elif c[0].isnumeric():
-     quant.append(c[0])
- for i in range(1,len(c)):
-              if "x" in c[i]:
-                    obj.append(c[i-1])
-                    obj.append(c[i])
-                    xtrigger=True
-               
-              if "d" in c[i]:
-                    obj2.append(c[i-1])
-                    obj2.append(c[i])
-              elif c[i].isnumeric() :
-                
-                    
-                    quant.append(c[i-1])
-                    quant.append(c[i]) 
- if xtrigger==True:
-     for i in range(0,len(obj)):
-                if "x" in obj[i]:
-                    s=obj[i].split()
-                    if not obj[i][0].isnumeric():
-                   
-                        obj[i]=obj[i].replace("x","1")
-                    else:
-                        
-                        obj[i]=obj[i].replace("x"," * 1")
-                 
-     if not obj[0].isnumeric():
-                  if obj[0]=="-":
-                    obj.remove(obj[0])
-                    obj[0]="-"+obj[0]
-                  elif obj[0]=="+":
-                    obj.remove(obj[0])
- for i in range(0,len(obj2)):
-            if "d" in obj2[i]:
-                s=obj2[i].split()
-                if not obj2[i][0].isnumeric():
-               
-                    obj2[i]=obj2[i].replace("d","1")
-                else:
-                    
-                    obj2[i]=obj2[i].replace("d"," * 1")
- if not obj2[0].isnumeric():
-             if obj2[0]=="-":
-                obj2.remove(obj2[0])
-                obj2[0]="-"+obj2[0]
-             elif obj2[0]=="+":
-                obj2.remove(obj2[0])
- if not quant[0].isnumeric():
-            if quant[0]=="-":
-                quant.remove(quant[0])
-                quant[0]=str(-1*int(quant[0]))
-            elif quant[0]=="+":
-                quant.remove(quant[0])
- a=calc2(str2.join(obj2))
- if xtrigger==True:
-  b=calc2(str2.join(obj))
- else:
-  b=0
- g=calc2(str4.join(quant))
- d=b**2-4*a*g
- if d>0:
-     x1=((-b+math.sqrt(d))/(2*a))
-     x2=((-b-math.sqrt(d))/(2*a))
-     x1f=round(x1,4)
-     x2f=round(x2,4)
-     answer="X1 =  " + str(x1f) + "   X2 = " +  str(x2f)
- elif d==0:
-     x=(-b)/(2*a)
-     xf=round(x,4)
-     answer="Single root found: " + str(xf)
- elif d<0:
-     answer="No roots found."
-     
- return answer       
-# 7. Method that does final calculations
-def calc2(str1):
- tabl2=str1.split(" ")
- tabl=tabl2.copy()
- res=[]
- trig=False
- d=0
- for i in range(0,len(tabl2)):
-         
-         if tabl2[i]!="+" and tabl2[i]!="-" and tabl2[i]!="/" and tabl2[i]!="*" and tabl2[i]!="^" and tabl2[i]!="("and tabl2[i]!=")"  and tabl2[i]!="π" and tabl2[i]!="sq":
-             tabl2[i]=float(tabl2[i])
-       
- for i in range(0,len(tabl)):
-         if tabl[i]!="+" and tabl[i]!="-" and tabl[i]!="/" and tabl[i]!="*" and tabl[i]!="^" and tabl[i]!="("and tabl[i]!=")" and tabl[i]!="π" and tabl[i]!="sq" :
-             tabl[i]=float(tabl[i])
-        
- 
- 
-     
-      
- while "*" in tabl or  "/" in tabl or "^" in tabl or "sq" in tabl:           
-     for i in range(0,len(tabl)):
-        if tabl[i]=="*" or tabl[i]=="/" or tabl[i]=="^" or tabl[i]=="sq":
-            if tabl[i]=="*":
-                tabl[i-1]=tabl[i-1]*tabl[i+1]
-                tabl.pop(i)
-                tabl.pop(i)
-                break
-            if tabl[i]=="^":
-                tabl[i-1]=tabl[i-1]**tabl[i+1]
-                tabl.pop(i)
-                tabl.pop(i)
-                break
-            if tabl[i]=="/":
-                tabl[i-1]=tabl[i-1]/tabl[i+1]
-                tabl.pop(i)
-                tabl.pop(i)
-                break
-            if tabl[i]=="sq":
-                tabl[i-1]=math.sqrt(tabl[i-1])
-                tabl.pop(i)
-                break
- final = tabl[0]
- for i in range(0,len(tabl)):
-     if tabl[i]=="+":
-         final=final+tabl[i+1]
-     if tabl[i]=="-":
-         final=final-tabl[i+1]
- return final
-# 8. Method that recognises where the calculations should begin depending on brackets
-def parenth(str1):
- tabl2=str1.split(" ")
- tabl=tabl2.copy()
- res=[]
- trig=False
- d=0
- str2=" "
-
- for i in range(0,len(tabl2)):
-         if tabl2[i]=="π":
-             tabl2[i]= math.pi
-         if tabl2[i]!="+" and tabl2[i]!="-" and tabl2[i]!="/" and tabl2[i]!="*" and tabl2[i]!="^" and tabl2[i]!="("and tabl2[i]!=")" and tabl2[i]!="sq":
-             tabl2[i]=float(tabl2[i])
- 
- for i in range(0,len(tabl)):
-         if tabl[i]=="π":
-             tabl[i]=math.pi
-         if tabl[i]!="+" and tabl[i]!="-" and tabl[i]!="/" and tabl[i]!="*" and tabl[i]!="^" and tabl[i]!="("and tabl[i]!=")" and tabl[i]!="sq":
-             tabl[i]=float(tabl[i])
-        
-       
- while "(" in tabl:
-     for i in range(0,len(tabl)):
-         if tabl[i]=="(" :
-             p=i+1
-             trig=True
-         if tabl[i]==")":
-             d=i
-             trig=True
-         if trig==True:
-             tabl3=tabl[p:d]
-     if trig==True:
-    
-         tabl[p-1:d]=[]
-     for i in range(0,len(tabl3)):
-         tabl3[i]=str(tabl3[i])
-
-     tabl[p-1]=calc2(str2.join(tabl3))
-  
-      
- for i in range(0,len(tabl)):
-    tabl[i]=str(tabl[i])
- 
- return calc2(str2.join(tabl))
     
 expression = ""
 # In order to get the instance of the input field 'StringVar()' is used
@@ -359,10 +119,6 @@ window.bind('(',lambda x: btn_click("( "))
 window.bind(')',lambda x: btn_click(" )"))
 window.bind('p',lambda x: btn_click("π"))
 window.bind('r',lambda x: btn_click(" sq"))
-
-
-
-
 
 delete = Button(btns_frame, text = "Del", fg = "black", width = 10, height = 3, bd = 0,borderwidth=0, bg = "white", cursor = "hand2", command = lambda: btn_del(event)).grid(row = 1, column = 4,  padx = 1, pady = 1)
 clear = Button(btns_frame, text = "Clear", fg = "black", width = 32,relief='flat',height = 3, bd = 0, highlightbackground="white", bg = "white", cursor = "hand2", command = lambda: btn_clear(event)).grid(row = 0, column = 0, columnspan = 3, padx = 1, pady = 1)
