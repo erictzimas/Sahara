@@ -1,0 +1,10 @@
+language: python
+
+
+branches:
+  only:
+  - master
+  
+
+script: 
+  - python sahara.py
