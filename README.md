@@ -12,7 +12,7 @@ Created on Mon Sep 21 22:38:24 2020
 
 # Installation
 
-Download sahara.py, enter $ python sahara.py on terminal or cmd to run
+-
 
 # Usage
 

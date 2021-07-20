@@ -152,9 +152,8 @@ class Solver:
             self.equation = str3.join(quant)
             rightside = Solver.finalCalculations(self)
             ans = (-1 * rightside) / leftside
-            answer = "X = ", ans
 
-        return answer
+        return ans
 
     def secondDegreeCalculations(self):
         c = self.equation.split(" ")
@@ -238,7 +237,7 @@ class Solver:
             x2 = (-b - math.sqrt(d)) / (2 * a)
             x1f = round(x1, 4)
             x2f = round(x2, 4)
-            answer = "X1 =  " + str(x1f) + "   X2 = " + str(x2f)
+            answer = "X1 = " + str(x1f) + " X2 = " + str(x2f)
         elif d == 0:
             x = (-b) / (2 * a)
             xf = round(x, 4)
