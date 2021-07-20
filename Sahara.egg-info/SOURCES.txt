@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.py
+Sahara.egg-info/PKG-INFO
+Sahara.egg-info/SOURCES.txt
+Sahara.egg-info/dependency_links.txt
+Sahara.egg-info/top_level.txt
+Solver/Solver.py
+Solver/__init__.py
+Solver/sahara.py
+tests/__init__.py
+tests/test_solver.py
