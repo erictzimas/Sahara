@@ -2,5 +2,5 @@ from Solver.Solver import Solver
 import pytest
 
 def test_finalCalculations():
-    solver = Solver('3 + 3')
-    assert(solver.finalCalculations() ==  6.0)
+    solver = Solver('2 / 5 * 3 + 4.3 - 2')
+    assert(solver.finalCalculations() ==  3.5)
